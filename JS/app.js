@@ -20,3 +20,19 @@ function init() {
     });
   });
 }
+
+//start filling the data inside the select option
+init();
+
+//
+
+d3.selectAll("#selDataset").on("change", plotFunctions);
+
+function plotFunctions() {
+  var valueSelect = d3.select("#selDataset").node().value;
+  demographicFunc(valueSelect);
+  panelPlot(valueSelect);
+  demographicFunc(valueSelect);
+  bubbleChart(valueSelect);
+  gaugeChart(valueSelect);
+}

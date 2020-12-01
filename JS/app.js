@@ -87,3 +87,33 @@ function panelPlot(valueSelect) {
   divValue.append("p").text(`wfreq: ${filterValue[0].wfreq}`);
 }
 
+function bubbleChart(valueSelect) {
+  var filterValue3 = data.samples.filter(value => value.id == valueSelect);
+  var ouid = filterValue3.map(v => v.otu_ids);
+  ouid = ouid[0];
+  var valueY = filterValue3.map(v => v.sample_values);
+  valueY = valueY[0];
+
+  var out_label = filterValue3.map(v => v.otu_labels);
+  out_label = treatBacName(out_label[0]);
+
+  var trace1 = {
+    x: ouid,
+    y: valueY,
+    mode: "markers",
+    marker: {
+      color: ouid,
+      size: valueY
+    },
+    text: out_label
+  };
+
+  var data2 = [trace1];
+
+  var layout = {
+    showlegend: false,
+    xaxis: { title: "OTU ID" }
+  };
+
+  Plotly.newPlot("bubble", data2, layout);
+}

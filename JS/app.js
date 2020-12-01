@@ -36,3 +36,32 @@ function plotFunctions() {
   bubbleChart(valueSelect);
   gaugeChart(valueSelect);
 }
+
+function demographicFunc(valueSelect) {
+  var filterValue2 = data.samples.filter(value => value.id == valueSelect);
+  var ouid = filterValue2.map(v => v.otu_ids);
+  ouid = treatOuid(ouid[0].slice(0, 10));
+  var valueX = filterValue2.map(v => v.sample_values);
+  valueX = valueX[0].slice(0, 10);
+
+  var out_label = filterValue2.map(v => v.otu_labels);
+  var names = treatBacName(out_label[0]).slice(0, 10);
+  // console.log(ouid);
+  // console.log(valueX);
+  // console.log(out_label);
+  // console.log(names);
+
+  // Create the Trace
+  var trace = {
+    x: valueX,
+    y: ouid,
+    text: names,
+    type: "bar",
+    orientation: "h"
+  };
+
+  var layout = {
+    yaxis: {
+      autorange: "reversed"
+    }
+  };

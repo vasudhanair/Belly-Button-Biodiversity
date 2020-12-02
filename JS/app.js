@@ -117,3 +117,47 @@ function bubbleChart(valueSelect) {
 
   Plotly.newPlot("bubble", data2, layout);
 }
+//function to create gauge chart and set the value based on the value selected
+function gaugeChart(valueSelect) {
+  var filterValue = data.metadata.filter(value => value.id == valueSelect);
+  var weeklyFreq = filterValue[0].wfreq;
+
+  var data2 = [
+    {
+      domain: { x: [0, 1], y: [0, 1] },
+      title: {
+        text: "Belly Button Washing Frequency <br>Scrubs per Week"
+      },
+      type: "indicator",
+
+      mode: "gauge",
+      gauge: {
+        axis: {
+          range: [0, 9],
+          tickvals: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+          ticks: "outside"
+        },
+
+        steps: [
+          { range: [0, 1], color: "EEDFE7" },
+          { range: [1, 2], color: "#E2CBD2" },
+          { range: [2, 3], color: "#D5B6BA" },
+          { range: [3, 4], color: "#C9A4A2" },
+          { range: [4, 5], color: "#BC998E" },
+          { range: [5, 6], color: "#AF917A" },
+          { range: [6, 7], color: "#A28B67" },
+          { range: [7, 8], color: "#797B4C" },
+          { range: [8, 9], color: "#5D673E" }
+        ],
+        threshold: {
+          line: { color: "red", width: 4 },
+          thickness: 1,
+          value: weeklyFreq
+        }
+      }
+    }
+  ];
+
+  var layout = { width: 600, height: 500, margin: { t: 0, b: 0 } };
+  Plotly.newPlot("gauge", data2, layout);
+}

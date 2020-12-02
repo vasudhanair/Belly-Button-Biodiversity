@@ -161,3 +161,29 @@ function gaugeChart(valueSelect) {
   var layout = { width: 600, height: 500, margin: { t: 0, b: 0 } };
   Plotly.newPlot("gauge", data2, layout);
 }
+
+//function to return the name of the bacteria.
+// if a array value has more than one name, it will consider the last name of the value
+// return just the 10 first values of the result
+function treatBacName(name) {
+  var listOfBact = [];
+
+  for (var i = 0; i < name.length; i++) {
+    var stringName = name[i].toString();
+    var splitValue = stringName.split(";");
+    if (splitValue.length > 1) {
+      listOfBact.push(splitValue[splitValue.length - 1]);
+    } else {
+      listOfBact.push(splitValue[0]);
+    }
+  }
+  return listOfBact;
+}
+
+function treatOuid(name) {
+  var listOfOuid = [];
+  for (var i = 0; i < name.length; i++) {
+    listOfOuid.push(`OTU ${name[i]}`);
+  }
+  return listOfOuid;
+}

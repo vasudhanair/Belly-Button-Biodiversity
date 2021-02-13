@@ -21,11 +21,11 @@ c) Created a Bubble chart that displays each sample
 
 d) A Guage Chart to display the Belly Button washing frequency per week
 
-![ Scrubing of Bellybutton frequency per week](Images/guagechart.png)
+![Washing frequency](Images/guagechart.png)
 
-e) Below displayed is the screenshot of the interactive dashboard
+e) Below displayed is the screenshot of the dashboard
 
-![Interactive Dashboard of Belly Button Biodiversity(Images/Screen Shot BellyButtonBiodiversity.png)
+![Dashboard of Belly Button Biodiversity(Images/Screen Shot BellyButtonBiodiversity.png)
 
 
 

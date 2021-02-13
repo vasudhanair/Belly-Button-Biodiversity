@@ -5,5 +5,5 @@ The same was also deployed to GitHub pages and the link to that is https://vasud
 This is an interactive dashboard that explores the Belly Button Biodiversity dataset which catalogs the microbes that inhabit human navels.
 D3 library was employed to read in samples.json file.
 A horizontal bar graph was charted with a dropdown menu to display the top 10 OTUs found in each individual.
-![Barchart.png]
+![Top 10 OTUs](Images/Barchart.png)
 
